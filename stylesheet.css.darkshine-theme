@@ -25,19 +25,22 @@
 }
 
 .directory-content {
-    border-radius: 7px;
+/*    border-radius: 7px; */
     padding: 10px;
     width: 170px;
     height: 90px;
-    background-color: rgba(0.0, 0.0, 0.0, 0.55);
+/*    background-color: rgba(0.0, 0.0, 0.0, 0.55); */
+    background-color: rgba(0.0, 0.0, 0.0, 0.0);
+
     color: white;
 }
 .result-content {
-    border-radius: 7px;
+/*    border-radius: 7px; */
     padding: 10px;
     width: 220px;
     height: 95px;
-    background-color: rgba(0.0, 0.0, 0.0, 0.3);
+/*    background-color: rgba(0.0, 0.0, 0.0, 0.3); */
+    background-color: rgba(0.0, 0.0, 0.0, 0.0);
     color: white;
 }
 
@@ -45,20 +48,35 @@
 
 /*
 These are the two sets of styles that are applied when tracker search results are hovered over via mouse or keyboard.
+I have styled these to match the 'Dark Shine' Gnome-3 shell theme, which I use (and love!), as well as modifying the
+borders and backgrounds in the two styles above.
 */
-.result:hover .result-content {
+.result:hover {
     transition-duration: 100;
-    background-color: rgba(255.0, 255.0, 255.0, 0.25);
+    background-color: rgba(0.0, 0.0, 0.0, 0.2);
+    border: 1px solid rgba(255.0, 255.0, 255.0, 0.2);
+    border-radius: 1px;
 }
 
-.result:focus .result-content,
+.result:focus,
 .app-well-app:focus > .overview-icon,
 .search-result-content:focus > .overview-icon,
-.result:selected .result-content,
+.result:selected,
 .app-well-app:selected > .overview-icon,
 .search-result-content:selected > .overview-icon {
-    transition-duration: 100;
-    background-color: rgba(255.0, 255.0, 255.0, 0.3);
+    background-color: rgba(0.0, 0.0, 0.0, 0.2);
+    border: 1px solid rgba(255.0, 255.0, 255.0, 0.2);
+    border-radius: 1px;
+}
+
+
+/*
+Now we'll also set an invisible border around un-hovered/focused results, as the appearance/disappearance of
+the border will otherwise make them appear to 'jump' by a pixel.
+*/
+.result {
+    border: 1px solid rgba(255.0, 255.0, 255.0, 0.0);
+    border-radius: 1px;
 }
 
 

@@ -21,6 +21,7 @@ const IconGrid      = imports.ui.iconGrid;
 const Util          = imports.misc.util;
 const Tracker       = imports.gi.Tracker;
 const St            = imports.gi.St;
+const Atk 	    = imports.gi.Atk;
 
 /* let xdg-open pick the appropriate program to open/execute the file */
 const DEFAULT_EXEC = 'xdg-open';
@@ -42,7 +43,11 @@ function TrackerResult(result) {
 // Overwriting layout to display search results.
 TrackerResult.prototype = {
     _init: function(resultMeta) {
-        this.actor = new St.Bin({ reactive: true, track_hover: true });
+        this.actor = new St.Bin({ style_class: 'result',
+			          reactive: true,
+			          can_focus: true,
+                                  track_hover: true,
+                                  accessible_role: Atk.Role.PUSH_BUTTON});
         var MainBox = new St.BoxLayout( { style_class: 'result-content', vertical: true });
         this.actor.set_child(MainBox);
         var icon = resultMeta.createIcon(ICON_SIZE);      
@@ -262,10 +267,10 @@ function init(meta) {
 }
 
 function enable() {
-    trackerSearchProviderFolders = new TrackerSearchProvider("Folders", CategoryType.FOLDERS);
+    trackerSearchProviderFolders = new TrackerSearchProvider("FOLDERS", CategoryType.FOLDERS);
     Main.overview.addSearchProvider(trackerSearchProviderFolders);
 
-    trackerSearchProviderFiles = new TrackerSearchProvider("Files", CategoryType.FTS);
+    trackerSearchProviderFiles = new TrackerSearchProvider("FILES", CategoryType.FTS);
     Main.overview.addSearchProvider(trackerSearchProviderFiles);
 }
 
@@ -276,3 +281,5 @@ function disable() {
     Main.overview.removeSearchProvider(trackerSearchProviderFolders);
     trackerSearchProviderFolders = null;
 }
+
+

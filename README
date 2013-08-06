@@ -1,10 +1,19 @@
 Tracker-Search Extension for Gnome-Shell
 
-Version: 1.4
+Version: 1.5.1
 
 
-Done:
-* Display File Location
-* Display more than one row of results (as soon as bug is fixed)
+This is a form of the tracker-search extension, specifically crafted for for Gnome 3.4.
 
-TODO:
+Source of this fork: https://github.com/cewee/tracker-search
+Gnome extension page: https://extensions.gnome.org/extension/284/tracker-search/
+
+The latest version of this extension stopped working Gnome 3.4 and failed to return any results.  This version
+is based on an older version of tracker-search that did work under Gnome 3.4, but with some newer changes merged
+in to provide keyboard navigation of the search results, and some CSS changes so that the search results highlight
+properly on mouse-over and focus.
+
+There are two versions of the CSS provided:
+stylesheet.css / stylesheet.css.default-theme - The default CSS from cewee, with highlighting for focus/mouse-over
+stylesheet.css.darkshine-theme - A modified CSS that matches better with the Gnome 3 'Dark Shine' theme (which I use)
+
